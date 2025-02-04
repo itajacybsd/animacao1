@@ -23,6 +23,7 @@ class _MyAnimationState extends State<MyAnimation> {
             alignment: pressed ? Alignment.bottomRight : Alignment.topCenter,
             duration: duration,
             child: AnimatedContainer(
+              curve: Curves.linear,
               margin: EdgeInsets.all(16),
               width: pressed ? 70 : 150,
               height: 70,
