@@ -9,6 +9,7 @@ class MyAnimation extends StatefulWidget {
 
 class _MyAnimationState extends State<MyAnimation> {
   bool pressed = true;
+  Duration duration = Duration(milliseconds: 1500);
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +21,12 @@ class _MyAnimationState extends State<MyAnimation> {
         children: [
           AnimatedAlign(
             alignment: pressed ? Alignment.bottomRight : Alignment.topCenter,
-            duration: Duration(milliseconds: 1000),
+            duration: duration,
             child: AnimatedContainer(
               margin: EdgeInsets.all(16),
               width: pressed ? 70 : 150,
               height: 70,
-              duration: Duration(milliseconds: 1000),
+              duration: duration,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(pressed ? 35 : 0),
                 color: Colors.blue,
