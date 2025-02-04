@@ -18,23 +18,27 @@ class _MyAnimationState extends State<MyAnimation> {
       ),
       body: Stack(
         children: [
-          AnimatedPositioned(
-            curve: Curves.linear,
-            right: pressed ? 50 : 270,
-            bottom: pressed ? 50 : 800,
-            width: pressed ? 50 : 150,
-            height: 50,
-            duration: Duration(milliseconds: 1500),
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  pressed = !pressed;
-                });
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(pressed ? 25 : 0),
-                  color: Colors.blue,
+          AnimatedAlign(
+            alignment: pressed ? Alignment.bottomRight : Alignment.topCenter,
+            duration: Duration(milliseconds: 1000),
+            child: AnimatedPositioned(
+              curve: Curves.linear,
+              duration: Duration(milliseconds: 1000),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    pressed = !pressed;
+                  });
+                },
+                child: AnimatedContainer(
+                  margin: EdgeInsets.all(16),
+                  width: pressed ? 70 : 150,
+                  height: 70,
+                  duration: Duration(milliseconds: 1000),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(pressed ? 35 : 0),
+                    color: Colors.blue,
+                  ),
                 ),
               ),
             ),
